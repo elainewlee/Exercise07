@@ -1,12 +1,3 @@
-# import scores.txt
-# readlines the file
-	# creates a list of strings containing each "line" ==> restaurant:rating
-	# for each line, separate at colon
-	# left = key/restaurant, right = value/rating
-
-# create a dictionary with the above
-
-# alphabetize ?
 
 from sys import argv
 from string import *
@@ -15,12 +6,7 @@ script, filename = argv
 
 filetext = open(filename).read()	
 
-#listLines = splitlines(filetext)
 listLines = filetext.splitlines()
-
-# sorted_list = sorted(listLines)
-# print sorted_list
-# print listLines
 
 dictrestaurants = {}
 
@@ -29,12 +15,6 @@ for line in listLines:
 	restaurant = temp[0]
 	rating = temp[1]
 	dictrestaurants[restaurant] = rating
-
-#response = raw_input("Do you want to sort alphabetically? Type yes or no. > ")
-
-#print listLines
-
-
 
 def sort_by_rating(dictrest, switched_list_pair):
 	list_pair = dictrest.items() # returns list of tuples in form [(key, value),(key,value),etc]
@@ -85,8 +65,12 @@ def sort_list_question():
 	elif answer == '3':
 		sort_alpha(dictrestaurants)
 	elif answer == '42':
-		print "Congratulations you've discovered the meaning of life."
+		print "Congratulations you've discovered the meaning of life. You don't need restaurants and sorting anymore. Goodbye."
+	elif answer == '80085':
+		print "Oh come ON. We're adults, here. Try again."
+		sort_list_question()
 	else:
+		print "Emily, stop giggling."
 		print "Completely unacceptable. Kindly try that again."
 		print "HINT: type '1', '2', or '3'"
 		sort_list_question()
